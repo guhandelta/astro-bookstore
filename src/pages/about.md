@@ -1,3 +1,7 @@
+---
+layout: ../layouts/main.astro
+---
+
 
 # About Astro Bookstore
 
