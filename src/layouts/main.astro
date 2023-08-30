@@ -1,3 +1,24 @@
+---
+const navList = [
+    {
+        path: '/',
+        label: 'Home'
+    },
+    {
+        path: '/buy',
+        label: 'Buy'
+    },
+    {
+        path: '/blog',
+        label: 'Blog'
+    },
+    {
+        path: '/about',
+        label: 'About'
+    },
+]
+---
+
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -17,6 +38,11 @@
                     Astro Bookstore
                 </span>
             </a>
+            <nav>
+                { 
+                    navList.map(({ label, path }) => <a href={path}>{label}</a> )
+                }
+            </nav>
         </header>
         <!-- slots are used to display components or link pages in Astro -->
         <slot />
