@@ -1,5 +1,5 @@
 ---
-layout: ../layouts/main.astro
+layout: ../layouts/page.astro
 ---
 
 
@@ -16,3 +16,5 @@ In 2009, Barnes & Noble.com also became a leader in eBooks, offering over 1 mill
 The B&N Marketplace offers millions of new and used items from a network of trusted Sellers, often at discounted prices -- all with the security and guarantee of BN.com. Our special collection of Rare & Collectible Books features unique finds such as signed and first editions and out of print books.
 
 Barnes & Noble.com has also created a number of thorough, easy-to-use stores, including including Audiobooks, Award Winners, Libros en español, and Bargain Books.
+
+Read books with us. [Buy Now](/buy)
