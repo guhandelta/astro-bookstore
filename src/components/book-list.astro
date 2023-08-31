@@ -1,0 +1,67 @@
+---
+import { Book } from '../types'
+
+function formatCurrency(amount:number) {
+    return new Intl.NumberFormat('en-us',{
+        style: 'currency',
+        currency: 'USD',
+        // minimumFractionDigits: 2
+    }).format(amount);
+}
+
+const result = await fetch('http://localhost:3001/books');
+
+if(!result.ok){
+    console.log(result);
+} 
+
+const bookList: Book[] = await result.json();
+---
+
+<section class="buy-books">
+    {
+        bookList.map(({ image, title, description, price }: Book) => (
+                <div class="book">
+                    <img src={image.src} alt={image.alt} />
+                    <h1>{title}</h1>
+                    <p>{description}</p>
+                    <p>{formatCurrency(price)}</p>
+                    <p>Add to cart</p>
+                </div>
+            )
+        )
+    }
+</section>
+
+<style>
+
+
+.buy-books {
+    display: flex;
+    gap: 3rem 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.book{
+    width: 250px;
+}
+
+.book img{
+    aspect-ratio: 1;
+    border-radius: 1.125rem;
+    display: block;
+    width: 100%;
+}
+
+.book h2{
+    font-size: 1.125rem;
+    margin: 0.75rem 0 0;
+}
+
+.book p{
+    margin: 0.25rem 0 0;
+}
+
+</style>

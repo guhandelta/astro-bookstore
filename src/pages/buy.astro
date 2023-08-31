@@ -1,0 +1,21 @@
+---
+import MainLayout from '../layouts/main.astro';
+import BookList from '../components/book-list.astro';
+---
+
+<MainLayout>
+    <div class="buy">
+        <h1>Buy your favourite books</h1>
+        <!-- Since the shopping cart will be build using ReactJS, ping the user to enable JS(if they have JS disabled on their browner) -->
+        <noscript>
+            JavaScript is required for using this page
+        </noscript>
+        <!-- But anyways the product list woudl still be visible, as it does not require any JS for Hydrating static content-->
+        
+        <div class="books">
+            <BookList />
+            
+            <p>Shopping Cart...</p>
+        </div>
+    </div>
+</MainLayout>
