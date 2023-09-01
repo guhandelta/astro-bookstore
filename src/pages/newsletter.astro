@@ -1,0 +1,89 @@
+---
+import MainLayout from '../layouts/main.astro';
+
+export const prerender = false;
+
+
+let msg;
+if(Astro.request.method === 'POST') {
+  try{
+    const data = await Astro.request.formData();
+
+    const email = data.get("email");
+
+    //Submit/Send the data to your newesletter API
+
+    msg = `Subscribed with email ${email}`;
+  }catch(error){
+    console.error(error);
+  }
+}
+---
+
+<MainLayout>
+  <h1 class="title">Get Astrobooks Newsletter</h1>
+
+  <div class:list={{success: true, show: msg}}>
+    <p>
+      {msg}
+      <a href="/newsletter" class="button-link">start over</a>
+    </p>
+  </div>
+
+  <form method="post" class:list={{newsletter: true, show: !msg}}>
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required />
+    <button type="submit" class="button-link">Subscribe</button>
+  </form>
+</MainLayout>
+
+<style>
+   .title {
+	text-align: center;
+}
+.newsletter,
+.success {
+	background-color: var(--primary-gray-100);
+	border: 2px solid var(--primary-gray-200);
+	border-radius: 0.126rem;
+	display: none;
+	flex-direction: column;
+	margin: 1rem auto;
+	max-width: 450px;
+	padding: 1.55rem 2.1rem;
+}
+
+.newsletter.show {
+	display: flex;
+}
+
+.newsletter label {
+	line-height: 1.1;
+}
+
+.newsletter label:not(:first-of-type) {
+	margin-block-start: 1rem;
+}
+
+.newsletter input {
+	border: 1px solid var(--primary-gray-300);
+	border-radius: 0.126rem;
+	font-size: 1rem;
+	margin-block-start: 0.26rem;
+	padding: 0.26rem;
+}
+
+.newsletter button {
+	margin-block-start: 1rem;
+}
+
+.success {
+	background-color: hsl(108, 33%, 94%);
+	border-color: hsl(100, 55%, 59%);
+	padding-block: 0.55rem;
+}
+
+.success.show {
+	display: block;
+}
+</style>
