@@ -2,7 +2,7 @@
 import MainLayout from '../layouts/main.astro';
 import heroImage from '../images/book-main.jpg';
 import BooksList from '../../codes/books-list.astro';
-
+import NewsLetterImg from '../images/newsletter.jpg';
 ---
 
 <MainLayout title="Welcome to Astro.">
@@ -24,6 +24,19 @@ import BooksList from '../../codes/books-list.astro';
 					See all books
 				</a>
 			</p>
+		</div>
+	</section>
+
+	<section class="container newsletter">
+		<img src={NewsLetterImg} alt="a-letter-being-typed-using-an-old-machine" />
+		<div class="copy">
+			<h3>Want to know more about Astrobooks?</h3>
+			<p>Receive Astrobooks newsletter and stay updated!</p>
+			<form method="post" action="/newsletter" class="newsletter-form">
+				<label for="email">Email</label>
+				<input type="email" id="email" name="email" required />
+				<button type="submit" class="button-link">Subscribe</button>
+			</form>
 		</div>
 	</section>
 
