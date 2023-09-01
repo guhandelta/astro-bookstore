@@ -20,6 +20,13 @@ const blogposts = await getCollection("blog");
             ))
         }
     </section>
+    <p class="rss">
+        <a href="/rss.xml">
+            <span class="link-normal">
+                Subscribe to our RSS Feed
+            </span>
+        </a>
+    </p>
 </MainLayout>
 
 <style>
@@ -71,7 +78,8 @@ const blogposts = await getCollection("blog");
     }
 
     .link-normal {
-        text-decoration: underline;
+        text-decoration: none;
+        margin-left: 40%;
     }
 
 </style>
