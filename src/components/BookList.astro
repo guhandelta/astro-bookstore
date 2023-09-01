@@ -17,18 +17,31 @@ if(!result.ok){
 } 
 
 const bookList: Book[] = await result.json();
+
+// To pass in props to the Astro component, a type with the name of "Props" need to be created, so it can be scanned by the Astro global Objects
+type Props = {
+    count?: number;
+    addToCart?: boolean;
+}
+
+/* Count is infinity to display all the products/books 
+Def Props => If the props are not passed count will be infinite & addToCart will be true
+
+Which is why they are optional in typeDef(ln: 22)*/
+const { count = Infinity, addToCart = true } = Astro.props;
 ---
 
 <section class="buy-books">
     {
-        bookList.map((book: Book) => (
+        // slice(0, count) 0 to next count number of the items
+        bookList.slice(0, count).map((book: Book) => (
                 <div class="book">
                     <img src={book.image.src} alt={book.image.alt} />
                     <h1>{book.title}</h1>
                     <p>{book.description}</p>
                     <p>{formatCurrency(book.price)}</p>
                     {/*This whole section would be static, except the AddToCart functionality */}
-                    <AddToCart item={book} client:only="react" />
+                    { addToCart && <AddToCart item={book} client:only="react" />}
                 </div>
             )
         )

@@ -1,6 +1,8 @@
 ---
 import MainLayout from '../layouts/main.astro';
 import heroImage from '../images/book-main.jpg';
+import BooksList from '../../codes/books-list.astro';
+
 ---
 
 <MainLayout title="Welcome to Astro.">
@@ -12,6 +14,19 @@ import heroImage from '../images/book-main.jpg';
 		</div>
 		<img src={heroImage} alt="Thirukkural" class="banner-image" />
 	</section>
+
+	<section class="container books">
+		<!-- The shopping cart can't be displayed in the main page, but rather in the buy page, so displaying the addToCart button there would be pointless. -->
+		<BooksList count={3} addToCart={false} />
+		<div class="books-link">
+			<p class="buy-link"> 
+				<a href="/buy">
+					See all books
+				</a>
+			</p>
+		</div>
+	</section>
+
 </MainLayout>
 
 <style>
