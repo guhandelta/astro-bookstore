@@ -4,9 +4,6 @@ const app = express();
 
 app.use(express.json());
 
-const imgURL =
-	'https://images.unsplash.com/photo-1610882648335-ced8fc8fa6b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80';
-
 let books = [
 	{
 		id: 1,
@@ -14,7 +11,7 @@ let books = [
 		description:
 			'A story of the fabulously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.',
 		image: {
-			src: imgURL,
+			src: 'https://www.themoviedb.org/t/p/original/nwJbVKauPDgJVQgT7SQpVTVN4gA.jpg',
 			alt: 'The Great Gatsby book cover',
 		},
 		price: 15.99,
@@ -25,7 +22,7 @@ let books = [
 		description:
 			'The story of young Scout Finch and her brother Jem, and their father, Atticus, who defends a black man accused of raping a white woman.',
 		image: {
-			src: imgURL,
+			src: 'https://th.bing.com/th/id/OIP.bvsOC5rMirlDAGp14NAgMwHaLH?pid=ImgDet&rs=1',
 			alt: 'To Kill a Mockingbird book cover',
 		},
 		price: 12.99,
@@ -36,7 +33,7 @@ let books = [
 		description:
 			'The story of Winston Smith, a man who lives in the dystopian superstate of Oceania.',
 		image: {
-			src: imgURL,
+			src: 'https://m.media-amazon.com/images/I/612oBD9OSjL._SL500_.jpg',
 			alt: '1984 book cover',
 		},
 		price: 11.99,
@@ -47,7 +44,7 @@ let books = [
 		description:
 			'The story of Elizabeth Bennet and her family as they navigate issues of morality, education, marriage, and property.',
 		image: {
-			src: imgURL,
+			src: 'https://m.media-amazon.com/images/I/61UE-IopYQL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg',
 			alt: 'Pride and Prejudice book cover',
 		},
 		price: 14.99,
@@ -58,7 +55,7 @@ let books = [
 		description:
 			'The adventure of Bilbo Baggins, who embarks on a journey to help a group of dwarves reclaim their mountain home from the dragon Smaug.',
 		image: {
-			src: imgURL,
+			src: 'https://m.media-amazon.com/images/I/413V3sIKSJL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg',
 			alt: 'The Hobbit book cover',
 		},
 		price: 13.99,
@@ -69,7 +66,7 @@ let books = [
 		description:
 			'The story of a young wizard, Harry Potter, and his adventures at Hogwarts School of Witchcraft and Wizardry.',
 		image: {
-			src: imgURL,
+			src: 'https://m.media-amazon.com/images/I/51Wfys667YL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg',
 			alt: "Harry Potter and the Sorcerer's Stone book cover",
 		},
 		price: 16.99,
@@ -80,7 +77,7 @@ let books = [
 		description:
 			'The story of Holden Caulfield, a teenager who is expelled from an exclusive prep school and returns to New York City.',
 		image: {
-			src: imgURL,
+			src: 'https://www.amreading.com/wp-content/uploads/catcher-in-the-rye3-214x300.jpg',
 			alt: 'The Catcher in the Rye book cover',
 		},
 		price: 10.99,
@@ -91,7 +88,7 @@ let books = [
 		description:
 			'The epic tale of Frodo Baggins and his quest to destroy the One Ring and defeat the Dark Lord Sauron.',
 		image: {
-			src: imgURL,
+			src: 'https://m.media-amazon.com/images/I/51qCdmrVZNL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg',
 			alt: 'Lord of the Rings book cover',
 		},
 		price: 18.99,
@@ -102,7 +99,7 @@ let books = [
 		description:
 			'The story of a young orphan, Jane Eyre, who becomes a governess and falls in love with her employer, Mr. Rochester.',
 		image: {
-			src: imgURL,
+			src: 'https://m.media-amazon.com/images/I/51poYFyvtWL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg',
 			alt: 'Jane Eyre book cover',
 		},
 		price: 11.99,
@@ -113,7 +110,7 @@ let books = [
 		description:
 			'The story of Santiago, an Andalusian shepherd boy who yearns to travel in search of a worldly treasure.',
 		image: {
-			src: imgURL,
+			src: 'https://m.media-amazon.com/images/I/51bDuU2p5zL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg',
 			alt: 'The Alchemist book cover',
 		},
 		price: 9.99,
