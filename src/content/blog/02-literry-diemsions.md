@@ -1,6 +1,5 @@
 ---
 title: Literary Dimensions
-slug: literary-dimensions
 date: 2023-09-01
 description: Explore the world of AstroBooks, books for all ages and interests
 ---
