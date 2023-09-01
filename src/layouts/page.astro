@@ -3,18 +3,7 @@ import MainLayout from '../layouts/main.astro'
 ---
 
 <MainLayout>
-    <section class="container page">
-        <slot />
-    </section>
+  <section class="container page">
+    <slot />
+  </section>
 </MainLayout>
-
-<!-- This style need not be added here as it would by applied from main layout, and this is added here as it does not seem to reflect on the UI -->
-<style>
-    .page {
-        max-width: 800px;
-        margin: 0 auto;
-    }
-    .container{
-        padding: 3rem max(5vw, calc((100%-800px)/2));
-    }
-</style>

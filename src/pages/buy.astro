@@ -1,6 +1,7 @@
 ---
 import MainLayout from '../layouts/main.astro';
 import BookList from '../components/book-list.astro';
+import Cart from '../components/cart';
 ---
 
 <MainLayout>
@@ -13,9 +14,12 @@ import BookList from '../components/book-list.astro';
         <!-- But anyways the product list woudl still be visible, as it does not require any JS for Hydrating static content-->
         
         <div class="books">
-            <BookList />
             
-            <p>Shopping Cart...</p>
+            <div class="list">
+                <BookList />
+            </div>
+            <!-- client:only => Informs Astro that this component won't be static, and requires JS as it is a dynamic component and runs some funcitonalities on the client side.The framework that is being used needs to be informed -->
+            <Cart client:only="react" />
         </div>
     </div>
 </MainLayout>
