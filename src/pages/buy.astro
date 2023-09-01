@@ -1,6 +1,6 @@
 ---
 import MainLayout from '../layouts/main.astro';
-import BookList from '../components/book-list.astro';
+import BookList from '../components/BookList.astro';
 import Cart from '../components/cart';
 ---
 
@@ -18,7 +18,14 @@ import Cart from '../components/cart';
             <div class="list">
                 <BookList />
             </div>
-            <!-- client:only => Informs Astro that this component won't be static, and requires JS as it is a dynamic component and runs some funcitonalities on the client side.The framework that is being used needs to be informed -->
+            <!-- client:only => Informs Astro that this component won't be static, and requires JS as it is a dynamic component and runs some funcitonalities on the client side.The framework that is being used needs to be informed 
+            
+                client: idle => default value. 
+                client: load => The component will begin importing JS when the page loads.
+                client: visible => The component's JS will not be sent to the client until. It will not be hydrated and not renderd as a non-static component, unless it is visible in the screen/UI
+                the user scrolls down and the component is visible on the page .
+                client: only="svelte" => The component won't render on the server, but will render on the client when the page loads.
+            -->
             <Cart client:only="react" />
         </div>
     </div>

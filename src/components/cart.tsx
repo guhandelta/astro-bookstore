@@ -4,6 +4,7 @@ import { $cart, removeBookFromCart, total } from '../store/cart';
 import Bookstore from '../images/bookstore.png';
 import './cart.style.css';
 import CartItems from './cart/CartItems';
+import Checkout from './cart/Checkout';
 
 const EmptyCart = () => {
   return (
@@ -27,7 +28,7 @@ const Cart = () => {
     <div className="cart">
         <h2 className="">Your Cart</h2>
         { Object.values(cart).length > 0 ?  <CartItems cart={cart} />  :  <EmptyCart /> }
-        { Object.values(cart).length > 0  &&  <h1>Checkout Notice</h1> }
+        { Object.values(cart).length > 0  &&  <Checkout total={cartTotal} /> }
     </div>
   )
 }

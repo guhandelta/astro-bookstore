@@ -1,5 +1,6 @@
 ---
 import { Book } from '../types'
+import AddToCart from './AddToCart';
 
 function formatCurrency(amount:number) {
     return new Intl.NumberFormat('en-us',{
@@ -20,13 +21,14 @@ const bookList: Book[] = await result.json();
 
 <section class="buy-books">
     {
-        bookList.map(({ image, title, description, price }: Book) => (
+        bookList.map((book: Book) => (
                 <div class="book">
-                    <img src={image.src} alt={image.alt} />
-                    <h1>{title}</h1>
-                    <p>{description}</p>
-                    <p>{formatCurrency(price)}</p>
-                    <p>Add to cart</p>
+                    <img src={book.image.src} alt={book.image.alt} />
+                    <h1>{book.title}</h1>
+                    <p>{book.description}</p>
+                    <p>{formatCurrency(book.price)}</p>
+                    {/*This whole section would be static, except the AddToCart functionality */}
+                    <AddToCart item={book} client:only="react" />
                 </div>
             )
         )
