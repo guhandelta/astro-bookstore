@@ -1,0 +1,30 @@
+---
+// This file is to create dynamic pages for the blogposts 
+import { getCollection } from "astro:content";
+import MainLayout from '../../layouts/main.astro';
+
+export async function getStaticPaths(){
+    const blogPosts = await getCollection("blog");
+
+    return blogPosts.map(post => {
+        return {
+            params: { slug: post.slug },
+            props: {post}
+        }
+    });
+    
+} 
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<MainLayout>
+    <section class="container">
+        <h2>
+            {post.data.title}
+        </h2>
+        <time datetime={post.data.date.toISOString()}>{post.data.date.toDateString()}</time>
+        <Content />
+    </section>
+</MainLayout>
